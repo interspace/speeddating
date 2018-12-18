@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = SPEEDDATING_GROUP
+version = SPEEDDATING_VERSION
+project.archivesBaseName = 'speeddating'
+
+android {
+    compileSdkVersion andConf.sdk
+
+    defaultConfig {
+        minSdkVersion andConf.minSdk
+        targetSdkVersion andConf.sdk
+        versionCode andConf.version
+        versionName andConf.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'com.willowtreeapps.assertk:assertk:0.9'
+}
